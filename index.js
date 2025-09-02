@@ -20,7 +20,7 @@ const bot = new TelegramBot(token);
 app.use(express.json());
 
 // ===== ФУНКЦИЯ ДЛЯ НАСТРОЙКИ ВЕБХУКА =====
-async fuckction setupWebhook() {
+async function setupWebhook() {
   try {
     // Формируем полный URL для вебхука
     const url = `${webhookUrl}/webhook`;

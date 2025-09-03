@@ -3,6 +3,10 @@ const { getRandomItem } = require('../utils/helpers');
 
 // Ответы на ключевые слова
 const responses = {
+  погода: [
+    { text: 'Сейчас гляну что там по погоде... 🌤️', action: 'getWeather' }
+  ],
+
   пиво: [
     'я только подумал о пиве и тут на нахуй!',
     'пей пиво пенное — будет жизнь отменная!',
@@ -33,6 +37,7 @@ const responses = {
 function findKeyword(text) {
   const lowerText = text.toLowerCase();
   
+  if (lowerText.includes('погода') || lowerText.includes('погоду') || lowerText.includes('погодка')) return 'погода';
   if (lowerText.includes('пив')) return 'пиво';
   if (lowerText.includes('кремпай')) return 'кремпай';
   if (lowerText.includes('серёга') || lowerText.includes('сер') || lowerText.includes('троф')) return 'серёга';

@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const config = require('./config');
 const { processInstagramLink } = require('./utils/helpers');
-const { handleStart, handleHi } = require('./handlers/commands');
+const { handleStart, handleHi, handleWeather } = require('./handlers/commands');
 const { findKeyword, handleKeyword } = require('./handlers/keywords');
 
 const bot = new TelegramBot(config.token);
@@ -44,6 +44,22 @@ async function handleMessage(update) {
         await bot.sendMessage(chat.id, message);
         return;
       }
+    }
+
+    // Обработка команды /weather
+    if (lowerText.startsWith('/weather')) {
+      const city = text.split(' ')[1] || 'Самара'; // По умолчанию Самара
+      const message = await handleWeather(userName, city);
+      await bot.sendMessage(chat.id, message);
+      return;
+    }
+
+    // Обработка команды /forecast
+    if (lowerText.startsWith('/forecast')) {
+      const city = text.split(' ')[1] || 'Самара'; // По умолчанию Самара
+      const message = await handleForecast(userName, city);
+      await bot.sendMessage(chat.id, message);
+      return;
     }
 
     // Можно добавить реакцию на другие сообщения

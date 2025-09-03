@@ -88,7 +88,7 @@ if (lowerText === '/start' || lowerText.startsWith('/start@')) {
 
       // Обработка команды /hi
       else if (lowerText === '/hi' || lowerText.startsWith('/hi@')) {
-        await bot.sendMessage(chatId, `Хорошего дня, ${userName}!\nи иди нахуй!`);
+        await bot.sendMessage(chatId, `Хорошего дня, ${userName}!\nи иди нахуй! 👌`);
       }
 
       else if (lowerText.includes('instagram.com/') || lowerText.includes('www.instagram.com/')) {

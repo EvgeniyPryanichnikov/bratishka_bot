@@ -1,4 +1,5 @@
 // Вспомогательные функции, Утилиты и хелперыconst axios = require('axios');
+const axios = require('axios');
 
 // Настройка вебхука
 async function setupWebhook(token, webhookUrl) {
